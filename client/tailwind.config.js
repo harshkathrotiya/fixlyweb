@@ -1,0 +1,97 @@
+module.exports = {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx,html}",
+    "./src/components/**/*.{js,jsx,ts,tsx}",
+    "./src/components/admin/**/*.{js,jsx,ts,tsx}",
+    "./public/index.html",
+  ],
+  safelist: [
+    // Common dynamic classes for admin panel
+    'translate-x-0',
+    '-translate-x-full',
+    'lg:translate-x-0',
+    'lg:w-16',
+    'lg:w-64',
+    'lg:ml-16',
+    'lg:ml-64',
+    'lg:hidden',
+    'opacity-0',
+    'opacity-100',
+    'invisible',
+    'visible',
+    // Sidebar specific classes
+    'px-2',
+    'px-6',
+    'lg:mr-0',
+    'mr-2',
+    'mr-3',
+    'lg:justify-center',
+    'lg:px-2',
+    'lg:text-center',
+    'lg:text-sm',
+    'lg:flex-col',
+    'lg:p-2',
+    'lg:ml-3',
+    'lg:opacity-0',
+    'lg:w-0',
+    'lg:overflow-hidden',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#f0f1f7',
+          100: '#e3e5ef',
+          200: '#c7cbe0',
+          300: '#a4acc8',
+          400: '#8a91b5',
+          500: '#6b7294',
+          600: '#5a5f7a',
+          700: '#4b4e63',
+          800: '#3f4153',
+          900: '#373746',
+        },
+        secondary: {
+          50: '#f2f6f7',
+          100: '#e5ecef',
+          200: '#cdd8df',
+          300: '#a6b8bc',
+          400: '#94a8ae',
+          500: '#7a8e95',
+          600: '#6a7b82',
+          700: '#59686d',
+          800: '#4c575b',
+          900: '#424a4e',
+        },
+      },
+      fontFamily: {
+        sans: ['Poppins', 'system-ui', 'sans-serif'],
+      },
+      animation: {
+        'bounce-in': 'bounceIn 0.6s ease-out',
+        'fade-in': 'fadeIn 0.3s ease-out',
+        'slide-up': 'slideUp 0.4s ease-out',
+      },
+      keyframes: {
+        bounceIn: {
+          '0%': { transform: 'scale(0.3)', opacity: '0' },
+          '50%': { transform: 'scale(1.05)' },
+          '70%': { transform: 'scale(0.9)' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(20px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+      },
+    },
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
+}
