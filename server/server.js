@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const errorHandler = require('./middleware/errorHandler');
+const { generalLimiter, authLimiter } = require('./middleware/rateLimiter');
 
 // Load env vars
 dotenv.config();
@@ -48,6 +49,10 @@ app.use(cors(corsOptions));
 // Dev logging middleware
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
+
+// Apply general rate limiting
+app.use(generalLimiter);
+
 }
 
 // Add a health check endpoint
@@ -71,6 +76,10 @@ app.use((req, res, next) => {
 });
 
 // Mount routes
+
+// Apply stricter rate limiting for auth routes
+app.use('/api/auth', authLimiter);
+
 app.use(routes);
 
 // Serve static files in production
