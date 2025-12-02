@@ -1,0 +1,1 @@
+const mongoose = require("mongoose"); mongoose.set("debug", true); mongoose.connect("mongodb+srv://hak:hakhak@cluster0.9p7ey.mongodb.net/fixly?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 5000 }).then(() => console.log("Connected")).catch(err => console.error("Connection failed:", err));
